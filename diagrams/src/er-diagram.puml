@@ -1,0 +1,119 @@
+@startuml er-diagram
+!theme plain
+title ER Diagram (draft) — Class Schedule Management System
+hide circle
+skinparam linetype ortho
+
+entity "app_user" as user {
+  *id : bigint <<PK>>
+  --
+  *email : varchar <<UQ>>
+  *password_hash : varchar
+  *role : enum(student, teacher, admin)
+  full_name : varchar
+  teacher_id : bigint <<FK>>
+  group_id : bigint <<FK>>
+}
+entity "department" as dep {
+  *id : bigint <<PK>>
+  --
+  *name : varchar
+}
+entity "student_group" as grp {
+  *id : bigint <<PK>>
+  --
+  *code : varchar <<UQ>>
+  *size : int
+  *department_id : bigint <<FK>>
+}
+entity "teacher" as t {
+  *id : bigint <<PK>>
+  --
+  *full_name : varchar
+  email : varchar
+  department_id : bigint <<FK>>
+}
+entity "room" as r {
+  *id : bigint <<PK>>
+  --
+  *name : varchar <<UQ>>
+  building : varchar
+  *capacity : int
+  *room_type : enum(lecture, lab, classroom)
+}
+entity "course" as c {
+  *id : bigint <<PK>>
+  --
+  *code : varchar
+  *title : varchar
+}
+entity "term" as term {
+  *id : bigint <<PK>>
+  --
+  *name : varchar
+  *start_date : date
+  *end_date : date
+}
+entity "time_slot" as ts {
+  *id : bigint <<PK>>
+  --
+  *number : int
+  *start_time : time
+  *end_time : time
+}
+entity "schedule_entry" as se {
+  *id : bigint <<PK>>
+  --
+  *term_id : bigint <<FK>>
+  *course_id : bigint <<FK>>
+  *teacher_id : bigint <<FK>>
+  *room_id : bigint <<FK>>
+  *lesson_type : enum(lecture, practice, lab)
+  *weekday : smallint
+  *time_slot_id : bigint <<FK>>
+  *week_pattern : enum(every, odd, even)
+  *week_parity : int[]  (every=1,2  odd=1  even=2)
+  *period : tsrange
+  created_by : bigint <<FK>>
+  updated_at : timestamptz
+}
+entity "schedule_entry_group" as seg {
+  *entry_id : bigint <<PK, FK>>
+  *group_id : bigint <<PK, FK>>
+  --
+  *term_id, weekday, period, week_parity\n(copied for group EXCLUDE)
+}
+entity "audit_log" as al {
+  *id : bigint <<PK>>
+  --
+  *entry_id : bigint
+  *action : enum(create, update, delete)
+  *changed_by : bigint <<FK>>
+  *changed_at : timestamptz
+  old_value : jsonb
+  new_value : jsonb
+}
+
+dep ||--o{ grp
+dep ||--o{ t
+term ||--o{ se
+c ||--o{ se
+t ||--o{ se
+r ||--o{ se
+ts ||--o{ se
+se ||--|{ seg
+grp ||--o{ seg
+se ||--o{ al
+user }o--|| t
+user }o--|| grp
+user ||--o{ al
+
+note bottom of se
+  Conflict prevention (PostgreSQL, btree_gist + intarray):
+  EXCLUDE USING gist (term_id WITH =, teacher_id WITH =,
+    weekday WITH =, period WITH &&, week_parity WITH &&)
+  — and same for room_id;
+  group conflicts enforced on schedule_entry_group.
+  Odd + even may share a slot; every conflicts with both.
+end note
+@enduml

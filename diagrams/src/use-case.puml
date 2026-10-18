@@ -1,0 +1,55 @@
+@startuml use-case
+!theme plain
+title Use Case Diagram — Class Schedule Management System
+left to right direction
+
+actor "Guest" as guest
+actor "Student" as student
+actor "Teacher" as teacher
+actor "Administrator" as admin
+actor "External system" as ext
+
+student -|> guest
+teacher -|> guest
+
+rectangle "Class Schedule Management System" {
+  usecase "Log in" as UC01
+  usecase "View schedule\nby group / teacher / room" as UC02
+  usecase "Search and filter schedule" as UC03
+  usecase "View my schedule\nand next lesson" as UC04
+  usecase "Find free rooms" as UC05
+  usecase "Export schedule (.ics)" as UC06
+  usecase "View recent changes" as UC07
+  usecase "Manage reference data\n(groups, teachers, rooms,\ncourses, time slots, terms)" as UC08
+  usecase "Create / edit / delete\nschedule entry" as UC09
+  usecase "Check conflicts\n(teacher, room, group)" as UC10
+  usecase "Check room capacity & type" as UC11
+  usecase "View change history" as UC12
+  usecase "Import data from CSV/Excel" as UC13
+  usecase "Suggest conflict-free options" as UC14
+  usecase "Read schedule via REST API" as UC15
+}
+
+guest --> UC02
+guest --> UC03
+student --> UC01
+student --> UC04
+student --> UC06
+student --> UC07
+teacher --> UC01
+teacher --> UC04
+teacher --> UC05
+teacher --> UC06
+teacher --> UC07
+admin --> UC01
+admin --> UC08
+admin --> UC09
+admin --> UC12
+admin --> UC13
+ext --> UC15
+
+UC09 ..> UC10 : <<include>>
+UC09 ..> UC11 : <<include>>
+UC14 ..> UC09 : <<extend>>
+UC13 ..> UC10 : <<include>>
+@enduml

@@ -1,0 +1,27 @@
+@startuml system-context
+!theme plain
+title System Context Diagram — Class Schedule Management System
+skinparam rectangle {
+  RoundCorner 12
+}
+left to right direction
+
+actor "Student" as student
+actor "Teacher" as teacher
+actor "Schedule\nAdministrator" as admin
+
+rectangle "Class Schedule\nManagement System\n\n[Web application:\nReact UI + FastAPI + PostgreSQL]" as css #E8F0FE
+
+rectangle "Personal calendar apps\n(Google Calendar, Outlook)\n[External]" as cal #F3F3F3
+rectangle "E-mail service (SMTP)\n[External, optional]" as mail #F3F3F3
+rectangle "Spreadsheet files\n(CSV / Excel)\n[Existing data source]" as xls #F3F3F3
+rectangle "Other university services\n(LMS, portals)\n[Future API consumers]" as ext #F3F3F3
+
+student --> css : views group schedule,\nsearches, exports .ics
+teacher --> css : views personal schedule,\nfinds free rooms
+admin --> css : manages reference data\nand schedule entries
+css --> cal : iCalendar (.ics) export / feed
+css --> mail : change notifications
+xls --> css : import of initial data
+ext --> css : read-only REST API
+@enduml
