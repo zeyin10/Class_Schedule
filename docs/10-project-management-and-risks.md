@@ -4,8 +4,8 @@
 
 | Tool | Purpose | Link |
 |---|---|---|
-| GitHub | Source code, documentation, diagrams, reviews (pull requests) | _TODO: repository URL_ |
-| YouTrack | Task tracking, priorities, deadlines | _TODO: YouTrack project URL_ |
+| GitHub | Source code, documentation, diagrams, reviews (pull requests) | https://github.com/zeyin10/Class_Schedule |
+| YouTrack | Task tracking, priorities, deadlines | https://zeyin.youtrack.cloud/projects/CSM |
 | Figma | UI/UX prototype | _TODO: Figma URL_ |
 
 ## 2. Team and responsibilities
@@ -20,8 +20,8 @@ Shared: proposal, requirements, use cases, evaluation plan, README, interviews.
 
 ## 3. Workflow
 
-- `main` is the reviewed baseline; work is done in branches named `DIP-<id>-<short-name>`.
-- Commit messages start with the task ID: `DIP-12: Add ER diagram draft`.
+- `main` is the reviewed baseline; work is done in branches named `CSM-<id>-<short-name>`.
+- Commit messages start with the task ID: `CSM-12: Add ER diagram draft`.
 - Every change is merged through a pull request that references the YouTrack task, explains how it was checked, and is reviewed by the other team member.
 - A YouTrack task is closed only when its acceptance criteria are met and the PR/commit link is added to the task.
 - Each pre-defense submission is tagged: `pre-defense-1`, `pre-defense-2`, `final-pre-defense`.
@@ -41,26 +41,26 @@ Shared: proposal, requirements, use cases, evaluation plan, README, interviews.
 
 ## 5. Initial backlog for Pre-defense 1
 
-Planned YouTrack tasks (to be created in YouTrack with the same IDs where possible).
+YouTrack tasks (created in the [CSM project](https://zeyin.youtrack.cloud/projects/CSM) with the same IDs).
 
 | ID | Task | Owner | Priority | Deadline | Acceptance criteria |
 |---|---|---|---|---|---|
-| DIP-1 | Create repository structure, README, .gitignore | Zeyin | Critical | 2026-10-19 | Structure per Git requirements; README contains all required sections |
-| DIP-2 | Create YouTrack project and backlog; give access to supervisor | Nurzhaina | Critical | 2026-10-19 | Tasks have owner, priority, deadline, acceptance criteria |
-| DIP-3 | Write project proposal and scope | Zeyin | Critical | 2026-10-20 | `docs/01-project-proposal.md` reviewed by partner |
-| DIP-4 | Prepare interview guide and conduct 3–5 interviews | Both | Critical | 2026-10-22 | Notes for each interview; verified findings vs assumptions table |
-| DIP-5 | Literature review (≥12 sources, ≥8 scientific) | Both | Critical | 2026-10-22 | Analysis table complete; all references verifiable |
-| DIP-6 | Existing system comparison (3–5 systems, 6–10 criteria) | Nurzhaina | High | 2026-10-21 | Every claim has a source |
-| DIP-7 | Technology comparison (≥3 decisions × 2–3 alternatives) | Zeyin | High | 2026-10-21 | Choices linked to requirements |
-| DIP-8 | Requirements specification with priorities and acceptance criteria | Both | Critical | 2026-10-22 | Every Must requirement has a verifiable acceptance criterion |
-| DIP-9 | System context and use case diagrams | Nurzhaina | High | 2026-10-22 | Editable sources + PNG exports in `diagrams/` |
-| DIP-10 | Component diagram (draft) and architecture description | Zeyin | High | 2026-10-22 | Consistent with requirements and use cases |
-| DIP-11 | ER diagram (draft) with conflict-prevention design | Zeyin | High | 2026-10-22 | Entities cover all reference data; constraint concept documented |
-| DIP-12 | Figma prototype of key scenarios | Nurzhaina | Critical | 2026-10-23 | Mockups for student view, search, admin editor with conflict message |
-| DIP-13 | Verification and evaluation plan | Zeyin | High | 2026-10-23 | Tests mapped to requirements; metrics, conditions, baseline defined |
-| DIP-14 | Risk register and milestones | Nurzhaina | Medium | 2026-10-23 | This document complete |
-| DIP-15 | Supervisor review of deliverables and response to comments | Both | Critical | 2026-10-23 | Comments and actions recorded in `docs/11-supervisor-feedback.md` |
-| DIP-16 | Tag `pre-defense-1` and prepare submission summary | Both | Critical | 2026-10-24 | Tag created; summary of done work, limitations, outstanding tasks |
+| CSM-1 | Create repository structure, README, .gitignore | Zeyin | Critical | 2026-10-19 | Structure per Git requirements; README contains all required sections |
+| CSM-2 | Create YouTrack project and backlog; give access to supervisor | Nurzhaina | Critical | 2026-10-19 | Tasks have owner, priority, deadline, acceptance criteria |
+| CSM-3 | Write project proposal and scope | Zeyin | Critical | 2026-10-20 | `docs/01-project-proposal.md` reviewed by partner |
+| CSM-4 | Prepare interview guide and conduct 3–5 interviews | Both | Critical | 2026-10-22 | Notes for each interview; verified findings vs assumptions table |
+| CSM-5 | Literature review (≥12 sources, ≥8 scientific) | Both | Critical | 2026-10-22 | Analysis table complete; all references verifiable |
+| CSM-6 | Existing system comparison (3–5 systems, 6–10 criteria) | Nurzhaina | High | 2026-10-21 | Every claim has a source |
+| CSM-7 | Technology comparison (≥3 decisions × 2–3 alternatives) | Zeyin | High | 2026-10-21 | Choices linked to requirements |
+| CSM-8 | Requirements specification with priorities and acceptance criteria | Both | Critical | 2026-10-22 | Every Must requirement has a verifiable acceptance criterion |
+| CSM-9 | System context and use case diagrams | Nurzhaina | High | 2026-10-22 | Editable sources + PNG exports in `diagrams/` |
+| CSM-10 | Component diagram (draft) and architecture description | Zeyin | High | 2026-10-22 | Consistent with requirements and use cases |
+| CSM-11 | ER diagram (draft) with conflict-prevention design | Zeyin | High | 2026-10-22 | Entities cover all reference data; constraint concept documented |
+| CSM-12 | Figma prototype of key scenarios | Nurzhaina | Critical | 2026-10-23 | Mockups for student view, search, admin editor with conflict message |
+| CSM-13 | Verification and evaluation plan | Zeyin | High | 2026-10-23 | Tests mapped to requirements; metrics, conditions, baseline defined |
+| CSM-14 | Risk register and milestones | Nurzhaina | Medium | 2026-10-23 | This document complete |
+| CSM-15 | Supervisor review of deliverables and response to comments | Both | Critical | 2026-10-23 | Comments and actions recorded in `docs/11-supervisor-feedback.md` |
+| CSM-16 | Tag `pre-defense-1` and prepare submission summary | Both | Critical | 2026-10-24 | Tag created; summary of done work, limitations, outstanding tasks |
 
 ## 6. Risk register
 

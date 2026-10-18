@@ -73,7 +73,8 @@ Justification: [Technology comparison](docs/05-technology-comparison.md).
 
 ## Links
 
-- **YouTrack:** _TODO_
+- **GitHub:** https://github.com/zeyin10/Class_Schedule
+- **YouTrack:** https://zeyin.youtrack.cloud/projects/CSM
 - **Figma prototype:** _TODO_
 
 ## Documentation
@@ -122,4 +123,4 @@ docker compose up --build
 
 ## Contribution workflow
 
-Branches `DIP-<id>-<short-name>`, commits `DIP-<id>: <message>`, pull requests reviewed by the other team member before merging into `main`. Details: [Project management](docs/10-project-management-and-risks.md#3-workflow).
+Branches `CSM-<id>-<short-name>`, commits `CSM-<id>: <message>`, pull requests reviewed by the other team member before merging into `main`. Details: [Project management](docs/10-project-management-and-risks.md#3-workflow).
